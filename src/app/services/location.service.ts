@@ -9,22 +9,18 @@ export class LocationService {
   constructor(private http: HttpClient) { }
 
   index() {
-    const uri = 'http://localhost:9000/api/v1.0/locations';
-
     return this
             .http
-            .get(uri)
+            .get('locations')
             .map(res => {
               return res;
           });
   }
 
   create(location: any) {
-    const uri = 'http://localhost:9000/api/v1.0/locations';
-
     return this
             .http
-            .post(uri, location)
+            .post('locations', location)
             .map(res => {
               return res;
           });
