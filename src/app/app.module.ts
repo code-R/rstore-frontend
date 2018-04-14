@@ -15,15 +15,20 @@ import { AppComponent } from './app.component';
 
 // Services
 import { LocationService } from './services/location.service';
+import { DepartmentService } from './services/department.service';
 
 // Interceptors
 import { HttpRequestInterceptor } from './interceptors/http-request.interceptor';
+import { DepartmentsComponent } from './departments/departments.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LocationsComponent
+    LocationsComponent,
+    DepartmentsComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +39,7 @@ import { HttpRequestInterceptor } from './interceptors/http-request.interceptor'
   ],
   providers: [
     LocationService,
+    DepartmentService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpRequestInterceptor,
