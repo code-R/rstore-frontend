@@ -1,11 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AppComponent } from './app.component';
+// routes
 import { appRoutes } from './app.routes';
-import { LocationsComponent } from './locations/locations.component';
 
+// Components
+import { LocationsComponent } from './locations/locations.component';
+import { AppComponent } from './app.component';
+
+// Services
+import { LocationService } from './services/location.service';
 
 @NgModule({
   declarations: [
@@ -15,8 +22,11 @@ import { LocationsComponent } from './locations/locations.component';
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [LocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
