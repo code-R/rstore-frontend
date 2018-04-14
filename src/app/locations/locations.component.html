@@ -1,10 +1,10 @@
 <div class="container">
-    <h4>Add LOCATION</h4>
+    <h4>{{ formAction }} LOCATION</h4>
 
     <div class="row add-location">
         <div class="col s12 m6 l6">
             <div class="row">
-                <form [formGroup]="locationForm" (ngSubmit)="addLocation()" class="col s12">
+                <form [formGroup]="locationForm" (ngSubmit)="submitAction()" class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
                             <input id="name" type="text" formControlName="name" class="validate">
@@ -28,9 +28,9 @@
                             </div>
                         </div>
                     </div>
-
-                    <button class="btn waves-effect waves-light">ADD
-                        <i class="material-icons right"></i>
+                    <input formControlName="id" type="hidden">
+                    <button class="btn waves-effect waves-light">{{ formAction }}
+                        <i class="material-icons">send</i>
                     </button>
                 </form>
             </div>
@@ -49,6 +49,7 @@
                         <th>Name</th>
                         <th>Description</th>
                         <th>Created At</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,6 +58,20 @@
                         <td>{{ location.name }}</td>
                         <td>{{ location.description }}</td>
                         <td>{{ location.created_at }}</td>
+                        <td>
+                            <button (click)="editLocation(location)" class="waves-effect waves-light btn">
+                                <i class="material-icons">edit</i>
+                                Edit
+                            </button>
+                            <button (click)="deleteLocation(location.id)" class="waves-effect waves-light btn red">
+                                <i class="material-icons">delete</i>
+                                Delete
+                            </button>
+                            <a [routerLink]="['locations', location.id, 'departments']" class="waves-effect waves-light btn">
+                                <i class="material-icons">list</i>
+                                Departments
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

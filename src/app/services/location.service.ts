@@ -18,11 +18,30 @@ export class LocationService {
   }
 
   create(location: any) {
+    delete location.id;
     return this
             .http
             .post('locations', location)
             .map(res => {
               return res;
           });
+  }
+
+  update(location: any) {
+    return this
+            .http
+            .put(`locations/${ location.id }`, location)
+            .map(res => {
+              return res;
+          });
+  }
+
+  destroy(locationId) {
+    return this
+      .http
+      .delete(`locations/${ locationId }`)
+      .map(res => {
+        return res;
+    });
   }
 }
