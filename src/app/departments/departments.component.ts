@@ -45,6 +45,7 @@ export class DepartmentsComponent implements OnInit {
     this.departmentService.index().subscribe(res => {
       this.departments = res;
       this.departmentForm.reset();
+      this.formAction = this.AddAction;
     });
   }
 

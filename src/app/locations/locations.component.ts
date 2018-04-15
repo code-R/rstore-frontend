@@ -35,6 +35,7 @@ export class LocationsComponent implements OnInit {
     this.locationService.index().subscribe(res => {
       this.locations = res;
       this.locationForm.reset();
+      this.formAction = this.AddAction;
     });
   }
 

@@ -48,6 +48,7 @@ export class CategoriesComponent implements OnInit {
     this.categoryService.index().subscribe(res => {
       this.categories = res;
       this.categoryForm.reset();
+      this.formAction = this.AddAction;
     });
   }
 
@@ -81,7 +82,7 @@ export class CategoriesComponent implements OnInit {
     });
   }
 
-  editcategory(category) {
+  editCategory(category) {
     delete category.created_at;
     delete category.location_id;
     delete category.department_id;

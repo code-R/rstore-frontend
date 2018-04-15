@@ -4,18 +4,19 @@ import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class CategoryService {
+export class SubCategoryService {
   public locationId: string;
   public departmentId: string;
+  public categoryId: string;
 
   constructor(private http: HttpClient) { }
 
   _get_collection_url() {
-    return `locations/${ this.locationId }/departments/${ this.departmentId }/categories`;
+    return `locations/${ this.locationId }/departments/${ this.departmentId }/categories/${ this.categoryId }/sub_categories`;
   }
 
-  _get_item_url(categoryId) {
-    return `locations/${ this.locationId }/departments/${ this.departmentId }/categories/${ categoryId }`
+  _get_item_url(subCategoryId) {
+    return `locations/${ this.locationId }/departments/${ this.departmentId }/categories/${ this.categoryId }/sub_categories/${ subCategoryId }`;
   }
 
   index() {

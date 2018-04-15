@@ -1,16 +1,16 @@
 <div class="container">
-    <h4>{{ formAction }} CATEGORY</h4>
+    <h4>{{ formAction }} SUB CATEGORY</h4>
 
     <div class="row add-category">
         <div class="col s12 m6 l6">
             <div class="row">
-                <form [formGroup]="categoryForm" (ngSubmit)="submitAction()" class="col s12">
+                <form [formGroup]="subCategoryForm" (ngSubmit)="submitAction()" class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
                             <input id="name" type="text" formControlName="name" class="validate">
                             <label for="name">Name</label>
-                            <div *ngIf="categoryForm.get('name').touched && !categoryForm.get('name').valid">
-                                <span *ngIf="categoryForm.get('name').hasError('required')" class="err-msg">
+                            <div *ngIf="subCategoryForm.get('name').touched && !subCategoryForm.get('name').valid">
+                                <span *ngIf="subCategoryForm.get('name').hasError('required')" class="err-msg">
                                     It is a required field
                                 </span>
                             </div>
@@ -21,8 +21,8 @@
                             <textarea class="materialize-textarea" formControlName="description">
                             </textarea>
                             <label for="name">Description</label>
-                            <div *ngIf="categoryForm.get('description').touched && !categoryForm.get('description').valid">
-                                <span *ngIf="categoryForm.get('description').hasError('required')" class="err-msg">
+                            <div *ngIf="subCategoryForm.get('description').touched && !subCategoryForm.get('description').valid">
+                                <span *ngIf="subCategoryForm.get('description').hasError('required')" class="err-msg">
                                     It is a required field
                                 </span>
                             </div>
@@ -39,7 +39,7 @@
 </div>
 
 <div class="rstore container">
-    <h4>CATEGORIES INFO</h4>
+    <h4>SUB CATEGORIES INFO</h4>
     <div class="row categories-info">
         <div class="col s12">
             <table class="striped">
@@ -53,24 +53,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let category of categories;let i = index">
+                    <tr *ngFor="let subCategory of subCategories;let i = index">
                         <td scope="row">{{ i + 1 }}</td>
-                        <td>{{ category.name }}</td>
-                        <td>{{ category.description }}</td>
-                        <td>{{ category.created_at }}</td>
+                        <td>{{ subCategory.name }}</td>
+                        <td>{{ subCategory.description }}</td>
+                        <td>{{ subCategory.created_at }}</td>
                         <td>
-                            <button (click)="editCategory(category)" class="waves-effect waves-light btn">
+                            <button (click)="editSubCategory(subCategory)" class="waves-effect waves-light btn">
                                 <i class="material-icons">edit</i>
                                 Edit
                             </button>
-                            <button (click)="deleteCategory(category.id)" class="waves-effect waves-light btn red">
+                            <button (click)="deleteSubCategory(subCategory.id)" class="waves-effect waves-light btn red">
                                 <i class="material-icons">delete</i>
                                 Delete
                             </button>
-                            <a [routerLink]="[category.id, 'sub_categories']" class="waves-effect waves-light btn">
-                                <i class="material-icons">list</i>
-                                Sub Categories
-                            </a>
                         </td>
                     </tr>
                 </tbody>

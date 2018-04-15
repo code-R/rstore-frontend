@@ -13,6 +13,7 @@ import { appRoutes } from './app.routes';
 import { LocationService } from './services/location.service';
 import { DepartmentService } from './services/department.service';
 import { CategoryService } from './services/category.service';
+import { SubCategoryService } from './services/sub-category.service';
 
 // Interceptors
 import { HttpRequestInterceptor } from './interceptors/http-request.interceptor';
@@ -22,6 +23,7 @@ import { LocationsComponent } from './locations/locations.component';
 import { AppComponent } from './app.component';
 import { DepartmentsComponent } from './departments/departments.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { SubCategoriesComponent } from './sub-categories/sub-categories.component';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { CategoriesComponent } from './categories/categories.component';
     AppComponent,
     LocationsComponent,
     DepartmentsComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    SubCategoriesComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { CategoriesComponent } from './categories/categories.component';
     LocationService,
     DepartmentService,
     CategoryService,
+    SubCategoryService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpRequestInterceptor,
