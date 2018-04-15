@@ -9,16 +9,17 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 // Routes
 import { appRoutes } from './app.routes';
 
-// Components
-import { LocationsComponent } from './locations/locations.component';
-import { AppComponent } from './app.component';
-
 // Services
 import { LocationService } from './services/location.service';
 import { DepartmentService } from './services/department.service';
+import { CategoryService } from './services/category.service';
 
 // Interceptors
 import { HttpRequestInterceptor } from './interceptors/http-request.interceptor';
+
+// Components
+import { LocationsComponent } from './locations/locations.component';
+import { AppComponent } from './app.component';
 import { DepartmentsComponent } from './departments/departments.component';
 import { CategoriesComponent } from './categories/categories.component';
 
@@ -40,6 +41,7 @@ import { CategoriesComponent } from './categories/categories.component';
   providers: [
     LocationService,
     DepartmentService,
+    CategoryService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpRequestInterceptor,
