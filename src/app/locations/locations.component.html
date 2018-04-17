@@ -55,7 +55,11 @@
                 <tbody>
                     <tr *ngFor="let location of locations;let i = index">
                         <td scope="row">{{ i + 1 }}</td>
-                        <td>{{ location.name }}</td>
+                        <td>
+                            <a [routerLink]="['locations', location.id, 'd3_graph']">
+                                {{ location.name }}
+                            </a>
+                        </td>
                         <td>{{ location.description }}</td>
                         <td>{{ location.created_at }}</td>
                         <td>

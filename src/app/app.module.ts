@@ -14,6 +14,7 @@ import { LocationService } from './services/location.service';
 import { DepartmentService } from './services/department.service';
 import { CategoryService } from './services/category.service';
 import { SubCategoryService } from './services/sub-category.service';
+import { GraphService } from './services/graph.service';
 
 // Interceptors
 import { HttpRequestInterceptor } from './interceptors/http-request.interceptor';
@@ -24,6 +25,7 @@ import { AppComponent } from './app.component';
 import { DepartmentsComponent } from './departments/departments.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { SubCategoriesComponent } from './sub-categories/sub-categories.component';
+import { D3GraphComponent } from './d3-graph/d3-graph.component';
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import { SubCategoriesComponent } from './sub-categories/sub-categories.componen
     DepartmentsComponent,
     CategoriesComponent,
     SubCategoriesComponent,
+    D3GraphComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { SubCategoriesComponent } from './sub-categories/sub-categories.componen
     ReactiveFormsModule,
   ],
   providers: [
+    GraphService,
     LocationService,
     DepartmentService,
     CategoryService,
